@@ -24,9 +24,10 @@ public class ColeccionVinilos {
         c.agregarVinilo(c.getcolecVinilos(), "Judas Priest", "Painkiller", "1990");
         c.agregarVinilo(c.getcolecVinilos(), "Judas Priest", "Defenders of the faith", "1984");
         c.agregarVinilo(c.getcolecVinilos(), "Kiss", "Destroyer", "1976");
+        c.eliminarVinilo(c.getcolecVinilos(), "Kiss");
+        c.mostrarColeccion(c.getcolecVinilos());
         System.out.println("Cantidad de vinilos: " + c.getcolecVinilos().size());
         System.out.println("Espacios disponibles: " + (100 - c.getcolecVinilos().size()));
-        c.mostrarColeccion(c.getcolecVinilos());
         c.mostrarBusquedaArtista(c.getcolecVinilos(), "Kiss");
         c.mostrarBusquedaArtista(c.getcolecVinilos(), "AC-DC");
 
