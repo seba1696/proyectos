@@ -1,0 +1,55 @@
+public class coleccion {
+
+    private ArrayList<Vinilo> colecVinilos = new ArrayList<Vinilo>();
+
+    coleccion() {
+    }
+
+    coleccion(ArrayList<Vinilo> colecVinilos) {
+        ArrayList<Vinilo> Vinilo = null;
+        this.colecVinilos = colecVinilos;
+    }
+
+    public ArrayList<Vinilo> getcolecVinilos() {
+        return colecVinilos;
+    }
+
+    public void setcolecVinilos(ArrayList<Vinilo> colecVinilos) {
+        this.colecVinilos = colecVinilos;
+    }
+
+    public void agregarVinilo(ArrayList<Vinilo> vin, String artista, String nombre, String year) {
+        vin.add(new Vinilo(artista, nombre, year));
+    }
+
+    public boolean buscarArtista(ArrayList<Vinilo> vin, String artista) {
+        int i;
+        boolean r = false;
+        for (i = 0; i < vin.size(); i++) {
+            if (vin.get(i).getNomArtista().equals(artista)) {
+                r = true;
+                break;
+            }
+        }
+        return r;
+    }
+
+    public void mostrarBusquedaArtista(ArrayList<Vinilo> vin, String artista) {
+        if (buscarArtista(vin, artista)) {
+            System.out.println("El artista: " + artista + ",si esta en la coleccion\n");
+        } else {
+            System.out.println("El artista: " + artista + ",no esta en la coleccion\n");
+        }
+    }
+
+    public void mostrarColeccion(ArrayList<Vinilo> vin) {
+        System.out.println("Datos coleccion vinilos");
+        System.out.println("\tNombre artista" + "\tTitulo vinilo" + "\tAño lanzamiento \n");
+        System.out.println("=================================================================");
+        for (int i = 0; i < vin.size(); i++) {
+            System.out.println(i + 1);
+            vin.get(i).mostrarVinilo();
+        }
+
+    }
+}
