@@ -13,63 +13,24 @@ public class ColeccionVinilos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        String artista = null, nombre = null, year = null;
-        ArrayList<Vinilo> colecVinilos = new ArrayList<Vinilo>();
-        colecVinilos.ensureCapacity(100);
-        agregarVinilo(colecVinilos, "Iron Maiden", "Iron Maiden", "1980");
-        agregarVinilo(colecVinilos, "Iron Maiden", "Killers", "1981");
-        agregarVinilo(colecVinilos, "Iron Maiden", "The number of the beast", "1982");
-        agregarVinilo(colecVinilos, "AC-DC", "Back in black", "1980");
-        agregarVinilo(colecVinilos, "AC-DC", "Highway to Hell", "1979");
-        agregarVinilo(colecVinilos, "AC-DC", "Who made who", "1986");
-        agregarVinilo(colecVinilos, "Judas Priest", "British steel", "1980");
-        agregarVinilo(colecVinilos, "Judas Priest", "Painkiller", "1990");
-        agregarVinilo(colecVinilos, "Judas Priest", "Defenders of the faith", "1984");
-        agregarVinilo(colecVinilos, "Kiss", "Destroyer", "1976");
-        System.out.println("Cantidad de vinilos: " + colecVinilos.size());
-        System.out.println("Espacios disponibles: " + (100 - colecVinilos.size()));
-        mostrarColeccion(colecVinilos);
-        mostrarBusquedaArtista(colecVinilos,"Kiss");
-        mostrarBusquedaArtista(colecVinilos,"AC-DC");
+        coleccion c = new coleccion();
+        c.agregarVinilo(c.getcolecVinilos(), "Iron Maiden", "Iron Maiden", "1980");
+        c.agregarVinilo(c.getcolecVinilos(), "Iron Maiden", "Killers", "1981");
+        c.agregarVinilo(c.getcolecVinilos(), "Iron Maiden", "The number of the beast", "1982");
+        c.agregarVinilo(c.getcolecVinilos(), "AC-DC", "Back in black", "1980");
+        c.agregarVinilo(c.getcolecVinilos(), "AC-DC", "Highway to Hell", "1979");
+        c.agregarVinilo(c.getcolecVinilos(), "AC-DC", "Who made who", "1986");
+        c.agregarVinilo(c.getcolecVinilos(), "Judas Priest", "British steel", "1980");
+        c.agregarVinilo(c.getcolecVinilos(), "Judas Priest", "Painkiller", "1990");
+        c.agregarVinilo(c.getcolecVinilos(), "Judas Priest", "Defenders of the faith", "1984");
+        c.agregarVinilo(c.getcolecVinilos(), "Kiss", "Destroyer", "1976");
+        System.out.println("Cantidad de vinilos: " + c.getcolecVinilos().size());
+        System.out.println("Espacios disponibles: " + (100 - c.getcolecVinilos().size()));
+        c.mostrarColeccion(c.getcolecVinilos());
+        c.mostrarBusquedaArtista(c.getcolecVinilos(), "Kiss");
+        c.mostrarBusquedaArtista(c.getcolecVinilos(), "AC-DC");
+
 
     }
 
-    public static void agregarVinilo(ArrayList<Vinilo> vin, String artista, String nombre, String year) {
-        Vinilo vi = new Vinilo();
-        vi.setNomArtista(artista);
-        vi.setNomVinilo(nombre);
-        vi.setAgno(year);
-        vin.add(vi);
-    }
-
-    public static boolean buscarArtista(ArrayList<Vinilo> vin, String artista) {
-        int i;
-        boolean r = false;
-        for (i = 0; i < vin.size(); i++) {
-            if (vin.get(i).getNomArtista().equalsIgnoreCase(artista)) {
-                r = true;
-            } else {
-                r = false;
-            }
-        }
-        return r;
-    }
-
-    public static void mostrarBusquedaArtista(ArrayList<Vinilo> vin, String artista) {
-        if (buscarArtista(vin, artista) == true) {
-            System.out.println(vin);
-        }
-    }
-
-    public static void mostrarColeccion(ArrayList<Vinilo> vin) {
-        for (int i = 0;i<vin.size();i++) {
-            System.out.println("---------------------------------------");
-            System.out.println("Artista: " + vin.get(i).getNomArtista());
-            System.out.println("Disco: " + vin.get(i).getNomVinilo());
-            System.out.println("Año: " + vin.get(i).getAgno());
-            System.out.println("---------------------------------------");
-        }
-
-    }
-
-}
+  }
