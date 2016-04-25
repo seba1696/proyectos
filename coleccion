@@ -52,4 +52,12 @@ public class coleccion {
         }
 
     }
+    public void eliminarVinilo(ArrayList<Vinilo> vin,String artista){
+        for (int i = 0; i < vin.size(); i++) {
+            if (vin.get(i).getNomArtista().equals(artista)) {
+                vin.remove(i);
+                break;
+            }
+        }
+    }
 }
