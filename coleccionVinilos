@@ -7,8 +7,7 @@ import java.util.*;
  * @author sebastian
  */
 public class ColeccionVinilos {
-    String artista = null, nombre = null, year = null;
-    Vinilo vi = new Vinilo(artista, nombre, year);
+   
     /**
      * @param args the command line arguments
      */
@@ -36,21 +35,24 @@ public class ColeccionVinilos {
     }
 
     public static void agregarVinilo(ArrayList<Vinilo> vin, String artista, String nombre, String year) {
-        Vinilo vi = new Vinilo(artista, nombre, year);
-        artista = vi.getNomArtista();
-        nombre = vi.getNomVinilo();
-        year = vi.getAgno();
+        Vinilo vi = new Vinilo();
+        vi.setNomArtista(artista);
+        vi.setNomVinilo(nombre);
+        vi.setAgno(year);
+        vin.add(vi);
     }
 
     public static boolean buscarArtista(ArrayList<Vinilo> vin, String artista) {
         int i;
+        boolean r = false;
         for (i = 0; i < vin.size(); i++) {
-            if (vin.get(i) == vi.getNomArtista()) {
-                return true;
+            if (vin.get(i).getNomArtista().equalsIgnoreCase(artista)) {
+                r = true;
             } else {
-                return false;
+                r = false;
             }
         }
+        return r;
     }
 
     public static void mostrarBusquedaArtista(ArrayList<Vinilo> vin, String artista) {
@@ -59,9 +61,13 @@ public class ColeccionVinilos {
         }
     }
 
-    public static void mostrarColeccion(ArrayList<Vinilo> vis) {
-        for (Vinilo vi : vis) {
-            vi.mostrarVinilo();
+    public static void mostrarColeccion(ArrayList<Vinilo> vin) {
+        for (int i = 0;i<vin.size();i++) {
+            System.out.println("---------------------------------------");
+            System.out.println("Artista: " + vin.get(i).getNomArtista());
+            System.out.println("Disco: " + vin.get(i).getNomVinilo());
+            System.out.println("Año: " + vin.get(i).getAgno());
+            System.out.println("---------------------------------------");
         }
 
     }
