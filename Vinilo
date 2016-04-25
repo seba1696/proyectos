@@ -14,7 +14,7 @@ public class Vinilo {
     private String nomArtista;
     private String nomVinilo;
     private String agno;
-
+    Vinilo(){}
     Vinilo(String nomArt, String nomVin, String year) {
         this.nomArtista = nomArt;
         this.nomVinilo = nomVin;
